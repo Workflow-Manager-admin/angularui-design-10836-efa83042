@@ -203,6 +203,30 @@ html, body {
   font-weight: 600;
 }
 
+/* Device Overview card heading styling for dashboard card */
+.card-device-overview .card-section-title {
+  font-size: 1.25rem;
+  letter-spacing: 0;
+  margin-bottom: 0.8rem;
+  margin-top: 0;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.15;
+}
+
+.device-overview-image {
+  display: inline-block;
+  margin-left: 0.45em;
+  margin-right: 0.2em;
+  vertical-align: middle;
+  width: 54px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 0.51rem;
+  background: #f2f6fa;
+  box-shadow: 0 2px 14px 0 #1976d21a;
+}
+
 .device-overview-header {
   display: flex;
   align-items: center;
