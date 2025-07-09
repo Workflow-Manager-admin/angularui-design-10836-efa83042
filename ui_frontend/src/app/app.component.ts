@@ -4,11 +4,13 @@ import { DashboardChartsComponent } from './dashboard-charts.component';
 import { DeviceTableComponent } from './device-table.component';
 import { DeviceDetailsDialogComponent, DeviceDetails } from './device-details-dialog.component';
 import { DeviceEditDialogComponent } from './device-edit-dialog.component';
+import { NotificationCenterComponent } from './notification-center.component';
+import { NotificationService } from './notification.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, DashboardChartsComponent, DeviceTableComponent, DeviceDetailsDialogComponent, DeviceEditDialogComponent],
+  imports: [CommonModule, DashboardChartsComponent, DeviceTableComponent, DeviceDetailsDialogComponent, DeviceEditDialogComponent, NotificationCenterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -121,10 +123,23 @@ export class AppComponent {
     }
   }
 
-  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+  constructor(
+    @Inject(PLATFORM_ID) platformId: Object,
+    notificationService: NotificationService
+  ) {
     this.isBrowser = isPlatformBrowser(platformId);
     if (this.isBrowser && typeof globalThis !== "undefined" && globalThis.window) {
       this.onResize();
     }
+    this._notificationService = notificationService;
+  }
+
+  private _notificationService: NotificationService;
+
+
+  // PUBLIC_INTERFACE
+  triggerDemoNotification() {
+    // Triggers a mock device event notification for demo
+    this._notificationService.mockDemoDeviceEvent();
   }
 }

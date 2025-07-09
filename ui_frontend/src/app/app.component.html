@@ -54,9 +54,19 @@
 
   <div class="dashboard-main-area">
     <!-- Topbar -->
-    <header class="topbar">
-      <div class="dashboard-search">
-        <input type="text" placeholder="Search devices…" aria-label="Search devices" />
+    <header class="topbar" style="display:flex;align-items:center;justify-content:space-between;">
+      <div style="display: flex; align-items: center;">
+        <div class="dashboard-search">
+          <input type="text" placeholder="Search devices…" aria-label="Search devices" />
+        </div>
+        <!-- Notification bell here -->
+        <app-notification-center></app-notification-center>
+        <!-- For demo, place a mock event trigger button (hidden visually but present for testing) -->
+        <button style="margin-left:1.3em; background: #eaf1fd; color: #1976d2; border:none; border-radius:8px; font-weight:600; font-size:0.97em; padding:0.3em 0.9em; cursor:pointer; box-shadow:0 1px 4px #1976d211;" title="Trigger Device Event Demo Notification" type="button"
+          (click)="triggerDemoNotification()">
+          <span class="material-symbols-outlined" style="vertical-align:middle;font-size:1.08em;">add_alert</span>
+          Demo Event
+        </button>
       </div>
       <div class="user-profile">
         <span class="user-avatar">R</span>
