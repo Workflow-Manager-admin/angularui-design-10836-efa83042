@@ -1,0 +1,62 @@
+<div class="dashboard-card device-table-card">
+  <div class="device-table-header-row">
+    <h2>Devices</h2>
+    <div class="device-table-controls">
+      <input class="device-table-search"
+        type="search"
+        placeholder="Search by name, IP, model…"
+        [value]="searchQuery()"
+        (input)="onSearchInput($event)"
+        aria-label="Search devices"
+      />
+      <select class="device-table-filter"
+        (change)="onStatusChange($event)"
+        [value]="statusFilter()"
+        aria-label="Device status filter"
+      >
+        <option value="all">All Status ({{devices.length}})</option>
+        <option value="online">Online ({{onlineCount()}})</option>
+        <option value="offline">Offline ({{offlineCount()}})</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="device-table-responsive">
+    <table class="device-table">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Name</th>
+          <th>IP Address</th>
+          <th>Model</th>
+          <th>Manufacturer</th>
+          <th>Location</th>
+          <th>Type</th>
+          <th>Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of filteredDevices()">
+          <td>
+            <span class="device-status-badge"
+                [class.online]="d.status==='Online'"
+                [class.offline]="d.status==='Offline'"
+                [attr.aria-label]="d.status">
+              ● {{d.status}}
+            </span>
+          </td>
+          <td><span class="device-name">{{d.name}}</span></td>
+          <td>{{d.ip}}</td>
+          <td>{{d.model}}</td>
+          <td>{{d.manufacturer}}</td>
+          <td>{{d.location}}</td>
+          <td>{{d.type}}</td>
+          <td>{{d.version}}</td>
+        </tr>
+        <tr *ngIf="filteredDevices().length === 0">
+          <td colspan="8" class="device-table-empty">No devices match your search/filter criteria.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

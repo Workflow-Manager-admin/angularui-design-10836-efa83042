@@ -1,11 +1,12 @@
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { DashboardChartsComponent } from './dashboard-charts.component';
+import { DeviceTableComponent } from './device-table.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, DashboardChartsComponent],
+  imports: [CommonModule, DashboardChartsComponent, DeviceTableComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
