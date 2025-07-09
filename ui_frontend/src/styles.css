@@ -1,14 +1,17 @@
 :root {
-  --primary: #181818;   /* Black for main action */
-  --accent: #ffffff;    /* White for contrast or text on black */
-  --success: #1a1a1a;   /* Slightly lighter dark for muted success */
-  --info: #222222;      /* Blackest for info/lines */
-  --secondary: #363636; /* Subtle gray for secondary text */
-  --background: #fff;   /* White background for content */
-  --bg-alt: #fafafa;
-  --card-bg: #fff;
-  --card-outline: #191919;
-  --shadow-color: 0 2px 16px 0 rgba(24,24,24,0.13), 0 1.5px 8px 0 rgba(24,24,24,0.09);
+  --primary: #1976d2;   /* Light Blue */
+  --primary-bg: #e3f2fd; /* Very light blue background */
+  --primary-translucent: rgba(25,118,210,0.12);
+  --primary-dark: #1565c0;
+  --accent: #1976d2;    /* Light blue accent for highlights */
+  --success: #43a047;
+  --info: #0a2540;
+  --secondary: #363636;
+  --background: #eaf6fb;
+  --bg-alt: #e3f2fd;
+  --card-bg: #e3f2fd;   /* Card background light blue */
+  --card-outline: #90caf9;
+  --shadow-color: 0 2px 16px 0 rgba(25,118,210,0.16), 0 1.5px 8px 0 rgba(67,160,71,0.08);
   --font-stack: 'Inter', 'Segoe UI', 'Hogger', Arial, sans-serif;
   --radius-lg: 1.05rem;
   --radius-md: 0.7rem;
@@ -19,7 +22,7 @@
 html, body {
   margin: 0; padding: 0;
   font-family: var(--hogger-heading);
-  background: #fff;
+  background: var(--background); /* global bg to light blue */
   color: #181818;
   letter-spacing: 0.005em;
   min-height: 100vh;
@@ -32,15 +35,15 @@ html, body {
 }
 
 .sidebar {
-  background: var(--bg-alt);
-  border-right: 3px solid #212121;
+  background: var(--primary-bg); /* light blue */
+  border-right: 3px solid var(--primary-dark);
   min-width: 220px;
   max-width: 260px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 2.1rem 1.4rem 1.4rem;
-  box-shadow: 0 2px 18px 0 #1818180e;
+  box-shadow: 0 4px 24px 0 #1976d229;
   z-index: 2;
 }
 
@@ -224,10 +227,10 @@ html, body {
 }
 .dashboard-card {
   flex: 1 1 300px;
-  background: var(--card-bg);
+  background: var(--card-bg); /* light blue */
   border-radius: var(--radius-lg);
-  box-shadow: 0 4px 22px 0 #18181818;
-  outline: 2.5px solid var(--card-outline);
+  box-shadow: 0 4px 18px 0 #1976d229, 0 1.8px 8px 0 #43a04718;
+  outline: 2.5px solid var(--card-outline); /* blue outline */
   margin-bottom: 0;
   padding: 1.7rem 2rem 1.8rem 2rem;
   display: flex;
@@ -244,8 +247,9 @@ html, body {
   letter-spacing: -0.005em;
   text-transform: uppercase;
   font-size: 1.16rem;
-  border-bottom: 1.5px solid #19191911;
+  border-bottom: 2.5px solid var(--primary); /* blue accent line */
   padding-bottom: 0.22em;
+  background: none !important;
 }
 
 
@@ -333,11 +337,11 @@ html, body {
 }
 .device-details div {
   line-height: 1.21em;
-  background: #fff;
+  background: #f4faff; /* lightest blue */
   border-radius: var(--radius-sm);
-  border: 1.4px solid #23232313;
+  border: 1.4px solid #90caf9;
   padding: 0.38em 0.62em 0.36em 0.64em;
-  box-shadow: 0 1.3px 5px 0 #1919190b;
+  box-shadow: 0 1.3px 5px 0 #70b0ee24;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -360,16 +364,18 @@ html, body {
 }
 .stats-title {
   font-size: 0.93rem;
-  color: #232323;
+  color: #1976d2;
   font-family: var(--hogger-heading);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.012em;
 }
 .stats-value {
   display: block;
-  font-size: 1.19rem;
+  font-size: 1.22rem;
   font-weight: 900;
-  color: #181818;
+  color: #1976d2;
   font-family: var(--hogger-heading);
+  text-shadow: 0 1px 7px #bbdefb75;
 }
 .alert-value {
   color: #e05137;
