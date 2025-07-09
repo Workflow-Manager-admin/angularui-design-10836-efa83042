@@ -28,22 +28,22 @@ export class DashboardChartsComponent {
       {
         label: 'Inbound Traffic',
         data: [42, 58, 66, 61, 75, 70, 80, 77, 90, 100, 88, 93],
-        borderColor: '#1976d2',
-        backgroundColor: 'rgba(25, 118, 210, 0.18)',
+        borderColor: '#181818',
+        backgroundColor: 'rgba(24,24,24,0.11)',
         fill: true,
         tension: 0.32,
         pointRadius: 5,
-        pointBackgroundColor: '#1976d2'
+        pointBackgroundColor: '#181818'
       },
       {
         label: 'Outbound Traffic',
         data: [27, 42, 55, 52, 62, 60, 67, 65, 74, 81, 77, 80],
-        borderColor: '#ff4081',
-        backgroundColor: 'rgba(255,64,129,0.15)',
+        borderColor: '#363636',
+        backgroundColor: 'rgba(54,54,54,0.10)',
         fill: true,
         tension: 0.28,
         pointRadius: 5,
-        pointBackgroundColor: '#ff4081'
+        pointBackgroundColor: '#363636'
       }
     ] as ChartDataset<'line'>[],
     labels: [
@@ -53,7 +53,7 @@ export class DashboardChartsComponent {
   networkActivityOptions: ChartOptions<'line'> = {
     responsive: true,
     plugins: {
-      legend: { display: true, position: 'top' },
+      legend: { display: true, position: 'top', labels: { color: '#181818' } },
       title: { display: false }
     },
     elements: {
@@ -61,8 +61,8 @@ export class DashboardChartsComponent {
       point: { borderWidth: 2 }
     },
     scales: {
-      x: { grid: { color: 'rgba(200,200,200,0.05)' }},
-      y: { grid: { color: 'rgba(150,150,150,0.07)' }}
+      x: { grid: { color: '#f1f1f1' }, ticks: { color: '#232323' } },
+      y: { grid: { color: '#ededed' }, ticks: { color: '#232323' } }
     }
   };
 
@@ -72,7 +72,7 @@ export class DashboardChartsComponent {
       {
         label: 'Acquisitions',
         data: [3, 6, 9, 7],
-        backgroundColor: '#45C29E',
+        backgroundColor: '#181818',
         borderWidth: 2,
         borderRadius: 10,
         barThickness: 28
@@ -87,8 +87,8 @@ export class DashboardChartsComponent {
       title: { display: false }
     },
     scales: {
-      x: { grid: { color: 'rgba(200,200,200,0.08)' }},
-      y: { grid: { color: 'rgba(150,150,150,0.08)' }, beginAtZero: true }
+      x: { grid: { color: '#f1f1f1' }, ticks: { color: '#222' } },
+      y: { grid: { color: '#ededed' }, beginAtZero: true, ticks: { color: '#222' } }
     }
   };
 
@@ -98,25 +98,25 @@ export class DashboardChartsComponent {
       {
         label: 'Video',
         data: [18, 14, 20, 15],
-        backgroundColor: 'rgba(25, 118, 210, 0.95)',
+        backgroundColor: '#222',
         stack: 'main'
       },
       {
         label: 'Web',
         data: [11, 13, 7, 9],
-        backgroundColor: 'rgba(100, 181, 246, 0.90)',
+        backgroundColor: '#bbb',
         stack: 'main'
       },
       {
         label: 'Gaming',
         data: [5, 7, 8, 6],
-        backgroundColor: 'rgba(69,194,158,0.80)',
+        backgroundColor: '#ddd',
         stack: 'main'
       },
       {
         label: 'Social',
         data: [6, 8, 5, 7],
-        backgroundColor: 'rgba(255,64,129,0.68)',
+        backgroundColor: '#000',
         stack: 'main'
       }
     ] as ChartDataset<'bar'>[],
@@ -125,12 +125,12 @@ export class DashboardChartsComponent {
   contentUsageOptions: ChartOptions<'bar'> = {
     responsive: true,
     plugins: {
-      legend: { display: true, position: 'bottom' },
+      legend: { display: true, position: 'bottom', labels: { color: '#181818' } },
       title: { display: false }
     },
     scales: {
-      x: { stacked: true, grid: { color: 'rgba(220,220,220,0.09)' }},
-      y: { stacked: true, beginAtZero: true, grid: { color: 'rgba(150,150,150,0.07)' } }
+      x: { stacked: true, grid: { color: '#efefef' }, ticks: { color: '#232323' }},
+      y: { stacked: true, beginAtZero: true, grid: { color: '#ededed' }, ticks: { color: '#232323' } }
     }
   };
 }
