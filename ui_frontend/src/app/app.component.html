@@ -1,10 +1,25 @@
 <!-- Device Management Dashboard Main Layout -->
 <div class="dashboard-root">
   <!-- Sidebar -->
-  <aside class="sidebar">
+  <aside
+    class="sidebar"
+    [class.sidebar-collapsed]="sidebarCollapsed"
+    [attr.aria-expanded]="!sidebarCollapsed"
+    [attr.aria-label]="sidebarCollapsed ? 'Collapsed Sidebar' : 'Expanded Sidebar'"
+  >
     <div class="sidebar-header">
       <span class="sidebar-logo">DM</span>
-      <span class="sidebar-title">Device Management</span>
+      <span class="sidebar-title" *ngIf="!sidebarCollapsed">Device Management</span>
+      <button
+        class="sidebar-toggle-btn"
+        [attr.aria-pressed]="sidebarCollapsed"
+        [attr.aria-label]="sidebarCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'"
+        (click)="toggleSidebar()"
+        type="button"
+      >
+        <span *ngIf="!sidebarCollapsed">⏴</span>
+        <span *ngIf="sidebarCollapsed">⏵</span>
+      </button>
     </div>
     <nav class="sidebar-nav">
       <ul>
@@ -13,15 +28,25 @@
           (click)="selectSidebar(i)"
           [class.sidebar-active]="selectedSidebarIndex === i"
           [attr.tabindex]="0"
+          [class.sidebar-special]="section.special"
         >
           <span
             class="sidebar-icon"
             [ngClass]="section.icon"
             [class.sidebar-icon-active]="selectedSidebarIndex === i"
-          ></span>
+            [attr.title]="sidebarCollapsed ? section.tooltip : null"
+            [attr.aria-label]="section.label"
+          >
+            <span *ngIf="sidebarCollapsed && section.short" class="sidebar-icon-emoji" aria-hidden="true">{{ section.short }}</span>
+          </span>
           <span
+            *ngIf="!sidebarCollapsed"
             [class.sidebar-label-active]="selectedSidebarIndex === i"
           >{{ section.label }}</span>
+          <span
+            *ngIf="sidebarCollapsed && !section.short"
+            class="sidebar-icon-s" aria-hidden="true"
+          >&#8226;</span>
         </li>
       </ul>
     </nav>

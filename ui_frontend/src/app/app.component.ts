@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { DashboardChartsComponent } from './dashboard-charts.component';
 
 @Component({
@@ -14,16 +14,77 @@ export class AppComponent {
 
   // PUBLIC_INTERFACE
   sidebarSections = [
-    { label: 'Broadband Service', icon: 'service-broadband' },
-    { label: 'LAN Service', icon: 'service-lan' },
-    { label: 'Syslog Service', icon: 'service-syslog' }
+    {
+      label: 'Broadband Service',
+      short: '🖧',
+      icon: 'service-broadband',
+      tooltip: 'Broadband Service'
+    },
+    {
+      label: 'LAN Service',
+      short: '🌐',
+      icon: 'service-lan',
+      tooltip: 'LAN Service'
+    },
+    {
+      label: 'Syslog Service',
+      short: '📋',
+      icon: 'service-syslog',
+      tooltip: 'Syslog Service'
+    },
+    {
+      label: 'Export & Download',
+      short: '⬇️',
+      icon: 'service-export',
+      tooltip: 'Export & Download',
+      special: true
+    },
+    {
+      label: 'Filtering & Advanced Search',
+      short: '🔎',
+      icon: 'service-filter',
+      tooltip: 'Filtering & Advanced Search',
+      special: true
+    }
   ];
 
   // PUBLIC_INTERFACE
   selectedSidebarIndex = 0;
 
   // PUBLIC_INTERFACE
+  sidebarCollapsed = false;
+
+  // PUBLIC_INTERFACE
+  isSmallScreen = false;
+
+  // For platform detection (SSR safe)
+  private isBrowser: boolean;
+
+  // PUBLIC_INTERFACE
   selectSidebar(index: number) {
     this.selectedSidebarIndex = index;
+  }
+
+  // PUBLIC_INTERFACE
+  toggleSidebar() {
+    this.sidebarCollapsed = !this.sidebarCollapsed;
+  }
+
+  // PUBLIC_INTERFACE
+  @HostListener('window:resize', [])
+  onResize() {
+    if (this.isBrowser && typeof globalThis !== "undefined" && globalThis.window) {
+      this.isSmallScreen = globalThis.window.innerWidth <= 780;
+      if (this.isSmallScreen) {
+        this.sidebarCollapsed = true;
+      }
+    }
+  }
+
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+    if (this.isBrowser && typeof globalThis !== "undefined" && globalThis.window) {
+      this.onResize();
+    }
   }
 }
