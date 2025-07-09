@@ -8,7 +8,7 @@
   flex: 1 1 300px;
   background: #fff;
   border-radius: var(--radius-lg);
-  box-shadow: 0 1.8px 16px 0 #16161615;
+  box-shadow: 0 4px 18px 0 #1976d229, 0 1.8px 8px 0 #43a04718;
   outline: 2px solid #191919;
   padding: 1.1rem 1.2rem 1.25rem 1.1rem;
   min-width: 260px;

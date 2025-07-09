@@ -28,22 +28,22 @@ export class DashboardChartsComponent {
       {
         label: 'Inbound Traffic',
         data: [42, 58, 66, 61, 75, 70, 80, 77, 90, 100, 88, 93],
-        borderColor: '#181818',
-        backgroundColor: 'rgba(24,24,24,0.11)',
+        borderColor: '#1976d2', // blue
+        backgroundColor: 'rgba(25, 118, 210, 0.12)', // translucent blue
         fill: true,
         tension: 0.32,
         pointRadius: 5,
-        pointBackgroundColor: '#181818'
+        pointBackgroundColor: '#1976d2'
       },
       {
         label: 'Outbound Traffic',
         data: [27, 42, 55, 52, 62, 60, 67, 65, 74, 81, 77, 80],
-        borderColor: '#363636',
-        backgroundColor: 'rgba(54,54,54,0.10)',
+        borderColor: '#43a047', // green
+        backgroundColor: 'rgba(67, 160, 71, 0.13)', // translucent green
         fill: true,
         tension: 0.28,
         pointRadius: 5,
-        pointBackgroundColor: '#363636'
+        pointBackgroundColor: '#43a047'
       }
     ] as ChartDataset<'line'>[],
     labels: [
@@ -72,7 +72,7 @@ export class DashboardChartsComponent {
       {
         label: 'Acquisitions',
         data: [3, 6, 9, 7],
-        backgroundColor: '#181818',
+        backgroundColor: '#ff4081', // vibrant accent/pink
         borderWidth: 2,
         borderRadius: 10,
         barThickness: 28
@@ -98,25 +98,25 @@ export class DashboardChartsComponent {
       {
         label: 'Video',
         data: [18, 14, 20, 15],
-        backgroundColor: '#222',
+        backgroundColor: '#1976d2', // blue
         stack: 'main'
       },
       {
         label: 'Web',
         data: [11, 13, 7, 9],
-        backgroundColor: '#bbb',
+        backgroundColor: '#43a047', // green
         stack: 'main'
       },
       {
         label: 'Gaming',
         data: [5, 7, 8, 6],
-        backgroundColor: '#ddd',
+        backgroundColor: '#ffa000', // amber/orange
         stack: 'main'
       },
       {
         label: 'Social',
         data: [6, 8, 5, 7],
-        backgroundColor: '#000',
+        backgroundColor: '#8e24aa', // purple
         stack: 'main'
       }
     ] as ChartDataset<'bar'>[],
