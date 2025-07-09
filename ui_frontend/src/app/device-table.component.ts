@@ -1,6 +1,18 @@
 import { Component, Input, Signal, signal, computed, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Device table row interface for type safety
+interface DeviceTableRow {
+  name: string;
+  ip: string;
+  status: 'Online' | 'Offline';
+  model: string;
+  manufacturer: string;
+  version: string;
+  location: string;
+  type: string;
+}
+
 /**
  * DeviceTableComponent displays a list of devices in a responsive,
  * searchable, and filterable table/card layout, matching dashboard UI.
@@ -16,13 +28,84 @@ import { CommonModule } from '@angular/common';
 })
 export class DeviceTableComponent implements OnInit {
   /** List of all devices (input from parent, could wire to API/service) */
-  @Input() devices: any[] = [];
+  @Input() devices: DeviceTableRow[] = [];
+
+  private defaultMockDevices: DeviceTableRow[] = [
+    {
+      name: 'Main Router',
+      ip: '192.168.1.1',
+      status: 'Online',
+      model: 'ISR 4331',
+      manufacturer: 'Cisco',
+      version: '16.09.04',
+      location: 'Main Office',
+      type: 'Router'
+    },
+    {
+      name: 'Switch Floor 2',
+      ip: '192.168.1.31',
+      status: 'Online',
+      model: 'SG350',
+      manufacturer: 'Cisco',
+      version: '2.5.1',
+      location: '2nd Floor',
+      type: 'Switch'
+    },
+    {
+      name: 'Storage NAS',
+      ip: '192.168.1.7',
+      status: 'Offline',
+      model: 'TS-451',
+      manufacturer: 'QNAP',
+      version: '5.1.4',
+      location: 'Server Room',
+      type: 'Storage'
+    },
+    {
+      name: 'AP-Lobby',
+      ip: '192.168.1.15',
+      status: 'Online',
+      model: 'UniFi AP',
+      manufacturer: 'Ubiquiti',
+      version: '6.5.28',
+      location: 'Lobby',
+      type: 'WiFi'
+    },
+    {
+      name: 'POS Terminal 1',
+      ip: '192.168.2.10',
+      status: 'Offline',
+      model: 'Epson TM',
+      manufacturer: 'Epson',
+      version: '8.2.0',
+      location: 'Front Desk',
+      type: 'POS'
+    },
+    {
+      name: 'Conference Cam',
+      ip: '192.168.2.20',
+      status: 'Online',
+      model: 'LogiCam Pro',
+      manufacturer: 'Logitech',
+      version: '3.3.7',
+      location: 'Conf Room',
+      type: 'Cam'
+    }
+  ];
+
+  /** The actual source of truth for devices, always fallback to mock if input is empty */
+  getDeviceList(): DeviceTableRow[] {
+    return (this.devices && Array.isArray(this.devices) && this.devices.length > 0)
+      ? this.devices
+      : this.defaultMockDevices;
+  }
 
   searchQuery = signal('');
   statusFilter = signal<'all'|'online'|'offline'>('all');
 
-  filteredDevices: Signal<any[]> = computed(() => {
-    let filtered = this.devices;
+  // PUBLIC_INTERFACE
+  filteredDevices: Signal<DeviceTableRow[]> = computed(() => {
+    let filtered = this.getDeviceList();
     const q = this.searchQuery().toLowerCase().trim();
     if (q.length > 0) {
       filtered = filtered.filter(d =>
@@ -40,75 +123,15 @@ export class DeviceTableComponent implements OnInit {
     return filtered;
   });
 
-  onlineCount = computed(() => this.devices.filter(d => d.status === 'Online').length);
-  offlineCount = computed(() => this.devices.filter(d => d.status === 'Offline').length);
+  // PUBLIC_INTERFACE
+  onlineCount = computed(() => this.getDeviceList().filter(d => d.status === 'Online').length);
 
+  // PUBLIC_INTERFACE
+  offlineCount = computed(() => this.getDeviceList().filter(d => d.status === 'Offline').length);
+
+  // PUBLIC_INTERFACE
   ngOnInit() {
-    // If no devices yet, use local mock (so empty input shows some demo)
-    if (!this.devices || this.devices.length === 0) {
-      this.devices = [
-        {
-          name: 'Main Router',
-          ip: '192.168.1.1',
-          status: 'Online',
-          model: 'ISR 4331',
-          manufacturer: 'Cisco',
-          version: '16.09.04',
-          location: 'Main Office',
-          type: 'Router'
-        },
-        {
-          name: 'Switch Floor 2',
-          ip: '192.168.1.31',
-          status: 'Online',
-          model: 'SG350',
-          manufacturer: 'Cisco',
-          version: '2.5.1',
-          location: '2nd Floor',
-          type: 'Switch'
-        },
-        {
-          name: 'Storage NAS',
-          ip: '192.168.1.7',
-          status: 'Offline',
-          model: 'TS-451',
-          manufacturer: 'QNAP',
-          version: '5.1.4',
-          location: 'Server Room',
-          type: 'Storage'
-        },
-        {
-          name: 'AP-Lobby',
-          ip: '192.168.1.15',
-          status: 'Online',
-          model: 'UniFi AP',
-          manufacturer: 'Ubiquiti',
-          version: '6.5.28',
-          location: 'Lobby',
-          type: 'WiFi'
-        },
-        {
-          name: 'POS Terminal 1',
-          ip: '192.168.2.10',
-          status: 'Offline',
-          model: 'Epson TM',
-          manufacturer: 'Epson',
-          version: '8.2.0',
-          location: 'Front Desk',
-          type: 'POS'
-        },
-        {
-          name: 'Conference Cam',
-          ip: '192.168.2.20',
-          status: 'Online',
-          model: 'LogiCam Pro',
-          manufacturer: 'Logitech',
-          version: '3.3.7',
-          location: 'Conf Room',
-          type: 'Cam'
-        }
-      ];
-    }
+    // If input devices is empty, do nothing: getDeviceList() will always use mock data fallback.
   }
 
   // These wrapper methods catch (input) and (change) events from the template.
