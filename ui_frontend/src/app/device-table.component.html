@@ -14,7 +14,7 @@
         [value]="statusFilter()"
         aria-label="Device status filter"
       >
-        <option value="all">All Status ({{devices.length}})</option>
+        <option value="all">All Status ({{getDeviceList().length}})</option>
         <option value="online">Online ({{onlineCount()}})</option>
         <option value="offline">Offline ({{offlineCount()}})</option>
       </select>
@@ -36,7 +36,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let d of filteredDevices()">
+        <tr *ngFor="let d of filteredDevices()"
+            (click)="onRowClick(d)"
+            style="cursor:pointer;"
+            tabindex="0"
+            (keydown.enter)="onRowClick(d)"
+            (keydown.space)="onRowClick(d)"
+            [attr.title]="'View details for ' + d.name">
           <td>
             <span class="device-status-badge"
                 [class.online]="d.status==='Online'"

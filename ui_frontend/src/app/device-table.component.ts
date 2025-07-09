@@ -1,8 +1,8 @@
-import { Component, Input, Signal, signal, computed, OnInit } from '@angular/core';
+import { Component, Input, Signal, signal, computed, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Device table row interface for type safety
-interface DeviceTableRow {
+export interface DeviceTableRow {
   name: string;
   ip: string;
   status: 'Online' | 'Offline';
@@ -11,6 +11,13 @@ interface DeviceTableRow {
   version: string;
   location: string;
   type: string;
+  // Optional extended fields for editing/details
+  uptime?: string;
+  productClass?: string;
+  connectionType?: string;
+  signalStrength?: string;
+  temperature?: string;
+  memoryUsage?: string;
 }
 
 /**
@@ -30,6 +37,9 @@ export class DeviceTableComponent implements OnInit {
   /** List of all devices (input from parent, could wire to API/service) */
   @Input() devices: DeviceTableRow[] = [];
 
+  /** Emits the device row that was clicked for view/edit dialog */
+  @Output() deviceSelected = new EventEmitter<DeviceTableRow>();
+
   private defaultMockDevices: DeviceTableRow[] = [
     {
       name: 'Main Router',
@@ -39,7 +49,13 @@ export class DeviceTableComponent implements OnInit {
       manufacturer: 'Cisco',
       version: '16.09.04',
       location: 'Main Office',
-      type: 'Router'
+      type: 'Router',
+      uptime: '127 days',
+      productClass: 'Router',
+      connectionType: 'Ethernet/WiFi',
+      signalStrength: '-45 dBm',
+      temperature: '42°C',
+      memoryUsage: '68%'
     },
     {
       name: 'Switch Floor 2',
@@ -149,4 +165,12 @@ export class DeviceTableComponent implements OnInit {
     const val = (target.value ?? 'all') as 'all'|'online'|'offline';
     this.statusFilter.set(val);
   }
+
+  // Called by row click in template
+  // PUBLIC_INTERFACE
+  onRowClick(device: DeviceTableRow) {
+    this.deviceSelected.emit(device);
+  }
 }
+
+export type { DeviceTableRow };

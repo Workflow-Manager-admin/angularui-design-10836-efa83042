@@ -126,8 +126,24 @@
       <!-- Chart cards row: replaced with actual chart component -->
       <app-dashboard-charts></app-dashboard-charts>
 
-      <!-- Device table row -->
-      <app-device-table></app-device-table>
+      <!-- Device table row with dialog integration -->
+      <app-device-table (deviceSelected)="openDeviceDetails($event)"></app-device-table>
+
+      <!-- Device details dialog/modal -->
+      <app-device-details-dialog
+        *ngIf="showDetailsDialog"
+        [device]="selectedDevice"
+        (close)="closeDetailsDialog()"
+        (edit)="openEditDialog()"
+      ></app-device-details-dialog>
+
+      <!-- Device edit dialog/modal -->
+      <app-device-edit-dialog
+        *ngIf="showEditDialog"
+        [device]="selectedDevice"
+        (save)="saveDeviceEdit($event)"
+        (close)="closeEditDialog()"
+      ></app-device-edit-dialog>
     </main>
   </div>
 </div>

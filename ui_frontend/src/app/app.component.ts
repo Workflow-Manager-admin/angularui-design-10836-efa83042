@@ -2,11 +2,13 @@ import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { DashboardChartsComponent } from './dashboard-charts.component';
 import { DeviceTableComponent } from './device-table.component';
+import { DeviceDetailsDialogComponent, DeviceDetails } from './device-details-dialog.component';
+import { DeviceEditDialogComponent } from './device-edit-dialog.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, DashboardChartsComponent, DeviceTableComponent],
+  imports: [CommonModule, DashboardChartsComponent, DeviceTableComponent, DeviceDetailsDialogComponent, DeviceEditDialogComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -60,6 +62,43 @@ export class AppComponent {
 
   // For platform detection (SSR safe)
   private isBrowser: boolean;
+
+  // ==================
+  // Device Details/Edit Dialog State
+  // ==================
+  selectedDevice: DeviceDetails|null = null;
+  showDetailsDialog = false;
+  showEditDialog = false;
+
+  // PUBLIC_INTERFACE
+  openDeviceDetails(device: DeviceDetails) {
+    this.selectedDevice = device;
+    this.showDetailsDialog = true;
+    this.showEditDialog = false;
+  }
+  // PUBLIC_INTERFACE
+  closeDetailsDialog() {
+    this.showDetailsDialog = false;
+  }
+  // PUBLIC_INTERFACE
+  openEditDialog() {
+    this.showDetailsDialog = false;
+    this.showEditDialog = true;
+  }
+  // PUBLIC_INTERFACE
+  closeEditDialog() {
+    this.showEditDialog = false;
+  }
+  // PUBLIC_INTERFACE
+  saveDeviceEdit(edited: DeviceDetails) {
+    // For now just close dialog and optionally update mock data
+    // (replace with real API call or update logic later)
+    if (this.selectedDevice) {
+      Object.assign(this.selectedDevice, edited);
+    }
+    this.closeEditDialog();
+    this.showDetailsDialog = true; // Optionally reopen details dialog updated.
+  }
 
   // PUBLIC_INTERFACE
   selectSidebar(index: number) {
