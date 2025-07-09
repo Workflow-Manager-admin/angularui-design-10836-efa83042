@@ -28,22 +28,22 @@ export class DashboardChartsComponent {
       {
         label: 'Inbound Traffic',
         data: [42, 58, 66, 61, 75, 70, 80, 77, 90, 100, 88, 93],
-        borderColor: '#1976d2', // blue
-        backgroundColor: 'rgba(25, 118, 210, 0.12)', // translucent blue
+        borderColor: '#232323', // monotone dark gray
+        backgroundColor: 'rgba(40,40,40,0.09)', // translucent gray
         fill: true,
         tension: 0.32,
         pointRadius: 5,
-        pointBackgroundColor: '#1976d2'
+        pointBackgroundColor: '#444'
       },
       {
         label: 'Outbound Traffic',
         data: [27, 42, 55, 52, 62, 60, 67, 65, 74, 81, 77, 80],
-        borderColor: '#43a047', // green
-        backgroundColor: 'rgba(67, 160, 71, 0.13)', // translucent green
+        borderColor: '#aaaaaa', // gray
+        backgroundColor: 'rgba(180,180,180,0.13)', // translucent light gray
         fill: true,
         tension: 0.28,
         pointRadius: 5,
-        pointBackgroundColor: '#43a047'
+        pointBackgroundColor: '#bbbbbb'
       }
     ] as ChartDataset<'line'>[],
     labels: [
@@ -61,7 +61,7 @@ export class DashboardChartsComponent {
       point: { borderWidth: 2 }
     },
     scales: {
-      x: { grid: { color: '#f1f1f1' }, ticks: { color: '#232323' } },
+      x: { grid: { color: '#ededed' }, ticks: { color: '#232323' } },
       y: { grid: { color: '#ededed' }, ticks: { color: '#232323' } }
     }
   };
@@ -72,7 +72,7 @@ export class DashboardChartsComponent {
       {
         label: 'Acquisitions',
         data: [3, 6, 9, 7],
-        backgroundColor: '#ff4081', // vibrant accent/pink
+        backgroundColor: '#5c5c5c', // medium gray
         borderWidth: 2,
         borderRadius: 10,
         barThickness: 28
@@ -87,7 +87,7 @@ export class DashboardChartsComponent {
       title: { display: false }
     },
     scales: {
-      x: { grid: { color: '#f1f1f1' }, ticks: { color: '#222' } },
+      x: { grid: { color: '#ededed' }, ticks: { color: '#222' } },
       y: { grid: { color: '#ededed' }, beginAtZero: true, ticks: { color: '#222' } }
     }
   };
@@ -98,25 +98,25 @@ export class DashboardChartsComponent {
       {
         label: 'Video',
         data: [18, 14, 20, 15],
-        backgroundColor: '#1976d2', // blue
+        backgroundColor: '#181818', // black
         stack: 'main'
       },
       {
         label: 'Web',
         data: [11, 13, 7, 9],
-        backgroundColor: '#43a047', // green
+        backgroundColor: '#4f4f4f', // dark gray
         stack: 'main'
       },
       {
         label: 'Gaming',
         data: [5, 7, 8, 6],
-        backgroundColor: '#ffa000', // amber/orange
+        backgroundColor: '#a7a7a7', // soft gray
         stack: 'main'
       },
       {
         label: 'Social',
         data: [6, 8, 5, 7],
-        backgroundColor: '#8e24aa', // purple
+        backgroundColor: '#cccccc', // pale gray
         stack: 'main'
       }
     ] as ChartDataset<'bar'>[],

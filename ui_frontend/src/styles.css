@@ -1,17 +1,17 @@
 :root {
-  --primary: #1976d2;   /* Light Blue */
-  --primary-bg: #e3f2fd; /* Very light blue background */
-  --primary-translucent: rgba(25,118,210,0.12);
-  --primary-dark: #1565c0;
-  --accent: #1976d2;    /* Light blue accent for highlights */
-  --success: #43a047;
-  --info: #0a2540;
+  --primary: #191919;   /* Black */
+  --primary-bg: #f9f9fa; /* Soft white-gray background */
+  --primary-translucent: rgba(0,0,0,0.11);
+  --primary-dark: #101010;
+  --accent: #111111;    /* Black accent for highlights */
+  --success: #333; /* muted dark for success/online */
+  --info: #222;
   --secondary: #363636;
-  --background: #eaf6fb;
-  --bg-alt: #e3f2fd;
-  --card-bg: #e3f2fd;   /* Card background light blue */
-  --card-outline: #90caf9;
-  --shadow-color: 0 2px 16px 0 rgba(25,118,210,0.16), 0 1.5px 8px 0 rgba(67,160,71,0.08);
+  --background: #fafbfc;
+  --bg-alt: #f3f3f6;
+  --card-bg: #ffffff;   /* Card background - white */
+  --card-outline: #bbbbbb;
+  --shadow-color: 0 2px 16px 0 rgba(24,24,24,0.07), 0 1.5px 8px 0 rgba(60,60,60,0.04);
   --font-stack: 'Inter', 'Segoe UI', 'Hogger', Arial, sans-serif;
   --radius-lg: 1.05rem;
   --radius-md: 0.7rem;
@@ -22,7 +22,7 @@
 html, body {
   margin: 0; padding: 0;
   font-family: var(--hogger-heading);
-  background: var(--background); /* global bg to light blue */
+  background: var(--background); /* global bg */
   color: #181818;
   letter-spacing: 0.005em;
   min-height: 100vh;
@@ -35,15 +35,15 @@ html, body {
 }
 
 .sidebar {
-  background: var(--primary-bg); /* light blue */
-  border-right: 3px solid var(--primary-dark);
+  background: #fcfcfc;
+  border-right: 3px solid #111;
   min-width: 220px;
   max-width: 260px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 2.1rem 1.4rem 1.4rem;
-  box-shadow: 0 4px 24px 0 #1976d229;
+  box-shadow: 0 4px 24px 0 rgba(12,12,12,0.08);
   z-index: 2;
 }
 
@@ -66,7 +66,6 @@ html, body {
   margin-right: 0.5rem;
 }
 
-
 .sidebar-title {
   font-size: 1.21rem;
   font-weight: 800;
@@ -87,7 +86,7 @@ html, body {
   padding: 0.8rem 1.13rem 0.8rem 1.3rem;
   border-radius: var(--radius-sm);
   color: #181818;
-  background: #fff; /* Enforce white by default for all sidebar items */
+  background: #fff;
   font-weight: 700;
   font-size: 1.04rem;
   transition: background 0.17s, color 0.12s;
@@ -98,43 +97,43 @@ html, body {
 }
 
 .sidebar-nav li.sidebar-active {
-  /* Show blue only for selected sidebar, rest will be white */
-  background: var(--primary);
-  color: #fff !important;
-  outline: 2.2px solid var(--primary-dark);
-  box-shadow: 0 2px 12px 0 #1976d218;
+  background: #ebebeb;
+  color: #191919 !important;
+  outline: 2.2px solid #1a1a1a;
+  box-shadow: 0 1.5px 10px 0 rgba(32,32,32,0.08);
   position: relative;
 }
+
 .sidebar-nav li.sidebar-active .sidebar-icon,
 .sidebar-nav li.sidebar-active .sidebar-icon-active {
-  background: #fff;
-  border: 2px solid var(--primary);
-  box-shadow: 0 0 0 2px #1976d220;
+  background: #222;
+  border: 2px solid #fcfcfc;
+  box-shadow: 0 0 0 2px #bdbdbd44;
 }
 .sidebar-nav li.sidebar-active span.sidebar-label-active {
-  color: var(--primary);
+  color: #191919;
   font-weight: 900;
-  background: #fff;
+  background: #ededed;
   padding: 0.1em 0.4em;
   border-radius: 0.21em;
-  box-shadow: 0 1.2px 7px 0 #1976d240;
+  box-shadow: 0 1.2px 7px 0 #cccccc40;
 }
 
 .sidebar-icon-active {
-  background: #e3f2fd !important;
-  border: 2px solid var(--primary) !important;
+  background: #efefef !important;
+  border: 2px solid #222 !important;
 }
 
 .sidebar-label-active {
-  color: var(--primary);
+  color: #191919;
   font-weight: 900;
   background: none;
 }
 
 .sidebar-nav li:hover, .sidebar-nav li:focus {
-  background: #f6fafd !important; /* very subtle offwhite on hover */
-  color: #1976d2 !important;
-  outline: 2px solid #232323;
+  background: #ededed !important;
+  color: #181818 !important;
+  outline: 2px solid #363636;
 }
 
 .sidebar-icon {
@@ -263,10 +262,10 @@ html, body {
 }
 .dashboard-card {
   flex: 1 1 300px;
-  background: var(--card-bg); /* light blue */
+  background: var(--card-bg);
   border-radius: var(--radius-lg);
-  box-shadow: 0 4px 18px 0 #1976d229, 0 1.8px 8px 0 #43a04718;
-  outline: 2.5px solid var(--card-outline); /* blue outline */
+  box-shadow: 0 4px 18px 0 rgba(26,26,26,0.09), 0 1.8px 8px 0 rgba(64,64,64,0.07);
+  outline: 2.5px solid #d2d2d2;
   margin-bottom: 0;
   padding: 1.7rem 2rem 1.8rem 2rem;
   display: flex;
@@ -283,11 +282,10 @@ html, body {
   letter-spacing: -0.005em;
   text-transform: uppercase;
   font-size: 1.16rem;
-  border-bottom: 2.5px solid var(--primary); /* blue accent line */
+  border-bottom: 2.5px solid #222;
   padding-bottom: 0.22em;
   background: none !important;
 }
-
 
 /* Device Overview card heading styling for dashboard card */
 .card-device-overview .card-section-title {
@@ -312,7 +310,7 @@ html, body {
   object-fit: cover;
   border-radius: 0.51rem;
   background: #fff;
-  box-shadow: 0 2px 12px 0 #18181813;
+  box-shadow: 0 2px 10px 0 #2221;
   outline: 1.7px solid #222;
 }
 
@@ -373,11 +371,11 @@ html, body {
 }
 .device-details div {
   line-height: 1.21em;
-  background: #f4faff; /* lightest blue */
+  background: #f7f7f8;
   border-radius: var(--radius-sm);
-  border: 1.4px solid #90caf9;
+  border: 1.4px solid #cccccc;
   padding: 0.38em 0.62em 0.36em 0.64em;
-  box-shadow: 0 1.3px 5px 0 #70b0ee24;
+  box-shadow: 0 1.3px 5px 0 #bbbbbb11;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -391,7 +389,6 @@ html, body {
   font-family: var(--hogger-heading);
 }
 
-
 .card-quick-stats .stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -400,7 +397,7 @@ html, body {
 }
 .stats-title {
   font-size: 0.93rem;
-  color: #1976d2;
+  color: #191919;
   font-family: var(--hogger-heading);
   font-weight: 700;
   letter-spacing: 0.012em;
@@ -409,9 +406,9 @@ html, body {
   display: block;
   font-size: 1.22rem;
   font-weight: 900;
-  color: #1976d2;
+  color: #101010;
   font-family: var(--hogger-heading);
-  text-shadow: 0 1px 7px #bbdefb75;
+  text-shadow: 0 1px 7px #cdcdcd45;
 }
 .alert-value {
   color: #e05137;
@@ -427,7 +424,7 @@ html, body {
   flex: 1 1 300px;
   background: #fff;
   border-radius: var(--radius-lg);
-  box-shadow: 0 2px 14px 0 #18181813;
+  box-shadow: 0 2px 14px 0 #1a1a1a13;
   outline: 2px solid #191919;
   padding: 1.2rem 1.4rem 1.5rem 1.2rem;
   min-width: 260px;
