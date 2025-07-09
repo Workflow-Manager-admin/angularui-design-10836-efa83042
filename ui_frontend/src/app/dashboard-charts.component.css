@@ -8,7 +8,7 @@
   background: #fff;
   border-radius: var(--radius-lg);
   box-shadow: 0 3.5px 20px 0 #bae0ff44, 0 1.5px 7px 0 #b8dfff26;
-  outline: none;
+  outline: none; /* flat look, keep shadows only */
   padding: 1rem 1.13rem 1.17rem 1.13rem;
   margin-bottom: 0.18rem;
   min-width: 260px;
@@ -16,7 +16,7 @@
 }
 .dashboard-card.chart-card:hover {
   box-shadow: 0 8px 28px 0 #40a9ff44, 0 3.5px 14px 0 #b8dfff40;
-  outline: 2.5px solid #2da0f6;
+  outline: 2.5px solid #2da0f6; /* focus/hover accent, not black */
   background: #f5faff;
 }
 .chart-card h3 {

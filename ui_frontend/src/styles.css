@@ -36,7 +36,7 @@ html, body {
 
 .sidebar {
   background: #fcfcfc;
-  border-right: 3px solid #111;
+  /* border-right: 3px solid #111; -- removed for flat side */
   min-width: 220px;
   max-width: 260px;
   display: flex;
@@ -62,7 +62,7 @@ html, body {
   width: 44px; height: 44px;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 1.3px 8px 1px #00000014;
-  outline: 2.5px solid #111;
+  outline: none; /* Remove black outline for flatness, retain focus via :focus-visible */
   margin-right: 0.5rem;
 }
 
@@ -144,7 +144,7 @@ html, body {
   background: #e4ecfb;
   display: inline-block;
   margin-right: 0.05rem;
-  border: 2px solid #2da0f6; /* Soft blue border */
+  border: 2px solid #2da0f6; /* Soft blue border, keep as is (not black), OK for theme accent */
   box-shadow: 0 1.2px 4px 0 #b1d2f650;
   position: relative;
 }
@@ -188,7 +188,8 @@ html, body {
 .topbar {
   height: 63px;
   background: #fff;
-  border-bottom: 2.5px solid #131313;
+  border-bottom: none; /* Remove dark border for flat look */
+  box-shadow: 0px 2px 12px 0 #00000009;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -197,7 +198,7 @@ html, body {
 }
 
 .dashboard-search input {
-  border: 2px solid #131313;
+  border: 2px solid #dde0e8;
   background: #fafafa;
   border-radius: var(--radius-md);
   font-size: 1.07rem;
@@ -209,9 +210,9 @@ html, body {
   font-family: var(--hogger-heading);
 }
 .dashboard-search input:focus {
-  border-color: #181818;
+  border-color: #1976d2; /* App accent, not black */
   background: #fff;
-  box-shadow: 0 0 0 2px #18181818;
+  box-shadow: 0 0 0 2px #1976d219;
 }
 
 .user-profile {
@@ -221,7 +222,7 @@ html, body {
   background: #fff;
   border-radius: var(--radius-md);
   padding: 0.34rem 1.1rem 0.34rem 0.34rem;
-  border: 2px solid #181818;
+  border: none; /* Remove black border for flat look */
   box-shadow: 0px 1px 5px 0 #11111110;
 }
 .user-avatar {
@@ -278,7 +279,7 @@ html, body {
   background: var(--card-bg);
   border-radius: var(--radius-lg);
   box-shadow: 0 4px 18px 0 rgba(26,26,26,0.09), 0 1.8px 8px 0 rgba(64,64,64,0.07);
-  outline: 2.5px solid #d2d2d2;
+  outline: none; /* Remove border/outline for flatness */
   margin-bottom: 0;
   padding: 1.7rem 2rem 1.8rem 2rem;
   display: flex;
@@ -295,7 +296,7 @@ html, body {
   letter-spacing: -0.005em;
   text-transform: uppercase;
   font-size: 1.16rem;
-  border-bottom: 2.5px solid #222;
+  border-bottom: none;
   padding-bottom: 0.22em;
   background: none !important;
 }
@@ -324,7 +325,7 @@ html, body {
   border-radius: 0.51rem;
   background: #fff;
   box-shadow: 0 2px 10px 0 #2221;
-  outline: 1.7px solid #222;
+  outline: none; /* Remove black outline */
 }
 
 .device-overview-header {
@@ -392,7 +393,7 @@ html, body {
   line-height: 1.08em;
   background: #f4f6fa;
   border-radius: var(--radius-sm);
-  border: 1px solid #deebf7;
+  border: 1px solid #deebf7; /* Light blue border; keep since not black and aids separation */
   padding: 0.19em 0.34em 0.19em 0.34em;
   box-shadow: none;
   font-weight: 500;
@@ -452,7 +453,7 @@ html, body {
   background: #fff;
   border-radius: var(--radius-lg);
   box-shadow: 0 2px 14px 0 #1a1a1a13;
-  outline: 2px solid #191919;
+  outline: none; /* Remove dark outline for flatness */
   padding: 1.2rem 1.4rem 1.5rem 1.2rem;
   min-width: 260px;
 }
@@ -476,7 +477,7 @@ html, body {
   letter-spacing: 0.03em;
   font-weight: 700;
   opacity: 0.97;
-  border: 1.1px dashed #19191977;
+  border: 1.1px dashed #d0dae777; /* Use light blue, not black for dashes */
 }
 
 @media (max-width: 1280px){
