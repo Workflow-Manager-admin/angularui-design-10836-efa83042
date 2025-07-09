@@ -61,6 +61,7 @@
   background: #fcfcfc;
   border-radius: var(--radius-md);
   box-shadow: 0 1.1px 4px #e0eaff08;
+  -webkit-overflow-scrolling: touch;
 }
 
 .device-table {
@@ -70,6 +71,19 @@
   min-width: 650px;
   background: transparent;
 }
+
+@media (max-width: 600px) {
+  .device-table {
+    min-width: unset;
+    font-size: 0.81rem;
+  }
+  .device-table-responsive {
+    border-radius: 0.6rem;
+    box-shadow: 0 0.7px 2px #e0eaff08;
+    padding-left: 0.02rem; padding-right: 0.02rem;
+  }
+}
+
 
 .device-table th,
 .device-table td {

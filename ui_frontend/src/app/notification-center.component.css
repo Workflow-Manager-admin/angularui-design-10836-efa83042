@@ -224,6 +224,6 @@
 }
 
 @media (max-width: 780px){
-  .notif-dropdown { right: 0; left: -132px; width: 93vw;}
-  .notif-toast { right: 8px; left: 8px; min-width: 1px;}
+  .notif-dropdown { right: 0; left: -132px; width: 95vw; min-width: 180px; max-width: 99vw;}
+  .notif-toast { right: 8px; left: 8px; min-width: 1px; max-width: 98vw;}
 }

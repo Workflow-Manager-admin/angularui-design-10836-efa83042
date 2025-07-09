@@ -55,3 +55,15 @@
     flex: 1 1 60vw;
   }
 }
+@media (max-width: 600px) {
+  .filter-bar {
+    padding: 0.21rem 0.02rem;
+    gap: 0.11rem;
+  }
+  .filter-input,
+  .filter-select {
+    min-width: 99vw;
+    font-size: 0.96rem;
+    margin-bottom: 0.04rem;
+  }
+}

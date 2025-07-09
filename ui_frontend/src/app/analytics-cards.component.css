@@ -55,3 +55,11 @@
   .dashboard-cards-analytics-row { flex-direction: column; gap: 0.34rem; }
   .analytics-card { min-width: 88vw; }
 }
+@media (max-width:780px){
+  .dashboard-cards-analytics-row { flex-direction: column; gap: 0.16rem; }
+  .analytics-card { min-width: 98vw; padding: 0.93rem 0.19rem 1.13rem 0.18rem; }
+  .analytics-list li {
+    font-size: 0.93rem;
+    padding: 0.19em 0.05em;
+  }
+}
