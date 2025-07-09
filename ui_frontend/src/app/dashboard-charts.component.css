@@ -1,0 +1,38 @@
+.dashboard-charts-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-card.chart-card {
+  flex: 1 1 300px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-color);
+  padding: 1.5rem 1.5rem 1.7rem 1.4rem;
+  min-width: 260px;
+}
+
+.chart-card h3 {
+  margin: 0 0 1.1em 0;
+  font-size: 1.1rem;
+  color: var(--success);
+  font-weight: 600;
+}
+
+/* Chart.js canvas inherits border radius left, add hidden overflow and custom shadow for pop-out effect */
+.chart-card canvas {
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 18px 0 rgba(25, 118, 210, 0.08), 0 1.5px 8px 0 rgba(100,181,246,0.07);
+  background: #f6fafd;
+  padding: 3px;
+  max-width: 100%;
+  min-height: 115px;
+  margin-bottom: 0.3rem;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 1280px){
+  .dashboard-charts-container { flex-direction: column; gap: 1.1rem; }
+}

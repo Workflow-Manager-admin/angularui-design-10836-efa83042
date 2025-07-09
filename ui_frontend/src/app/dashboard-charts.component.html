@@ -1,0 +1,29 @@
+<div *ngIf="isBrowser" class="dashboard-charts-container">
+  <div class="dashboard-card chart-card">
+    <h3>Network Activity</h3>
+    <canvas
+      baseChart
+      [data]="networkActivityChart"
+      [options]="networkActivityOptions"
+      [type]="'line'">
+    </canvas>
+  </div>
+  <div class="dashboard-card chart-card">
+    <h3>Device Acquisitions</h3>
+    <canvas
+      baseChart
+      [data]="deviceAcquisitionChart"
+      [options]="deviceAcquisitionOptions"
+      [type]="'bar'">
+    </canvas>
+  </div>
+  <div class="dashboard-card chart-card">
+    <h3>Content Usage</h3>
+    <canvas
+      baseChart
+      [data]="contentUsageChart"
+      [options]="contentUsageOptions"
+      [type]="'bar'">
+    </canvas>
+  </div>
+</div>
