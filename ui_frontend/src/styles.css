@@ -95,6 +95,41 @@ html, body {
   outline: 2px solid transparent;
   border: none;
 }
+
+.sidebar-nav li.sidebar-active {
+  /* Hogger light blue for active sidebar section only */
+  background: var(--primary);
+  color: #fff;
+  outline: 2.2px solid var(--primary-dark);
+  box-shadow: 0 2px 12px 0 #1976d218;
+  position: relative;
+}
+.sidebar-nav li.sidebar-active .sidebar-icon,
+.sidebar-nav li.sidebar-active .sidebar-icon-active {
+  background: #fff;
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 0 2px #1976d220;
+}
+.sidebar-nav li.sidebar-active span.sidebar-label-active {
+  color: var(--primary);
+  font-weight: 900;
+  background: #fff;
+  padding: 0.1em 0.4em;
+  border-radius: 0.21em;
+  box-shadow: 0 1.2px 7px 0 #1976d240;
+}
+
+.sidebar-icon-active {
+  background: #e3f2fd !important;
+  border: 2px solid var(--primary) !important;
+}
+
+.sidebar-label-active {
+  color: var(--primary);
+  font-weight: 900;
+  background: none;
+}
+
 .sidebar-nav li:hover, .sidebar-nav li:focus {
   background: #21212108;
   color: #000;

@@ -8,17 +8,20 @@
     </div>
     <nav class="sidebar-nav">
       <ul>
-        <li>
-          <span class="sidebar-icon service-broadband"></span>
-          <span>Broadband Service</span>
-        </li>
-        <li>
-          <span class="sidebar-icon service-lan"></span>
-          <span>LAN Service</span>
-        </li>
-        <li>
-          <span class="sidebar-icon service-syslog"></span>
-          <span>Syslog Service</span>
+        <li
+          *ngFor="let section of sidebarSections; let i = index"
+          (click)="selectSidebar(i)"
+          [class.sidebar-active]="selectedSidebarIndex === i"
+          [attr.tabindex]="0"
+        >
+          <span
+            class="sidebar-icon"
+            [ngClass]="section.icon"
+            [class.sidebar-icon-active]="selectedSidebarIndex === i"
+          ></span>
+          <span
+            [class.sidebar-label-active]="selectedSidebarIndex === i"
+          >{{ section.label }}</span>
         </li>
       </ul>
     </nav>
