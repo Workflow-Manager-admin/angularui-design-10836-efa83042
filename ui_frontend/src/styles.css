@@ -87,6 +87,7 @@ html, body {
   padding: 0.8rem 1.13rem 0.8rem 1.3rem;
   border-radius: var(--radius-sm);
   color: #181818;
+  background: #fff; /* Enforce white by default for all sidebar items */
   font-weight: 700;
   font-size: 1.04rem;
   transition: background 0.17s, color 0.12s;
@@ -97,9 +98,9 @@ html, body {
 }
 
 .sidebar-nav li.sidebar-active {
-  /* Hogger light blue for active sidebar section only */
+  /* Show blue only for selected sidebar, rest will be white */
   background: var(--primary);
-  color: #fff;
+  color: #fff !important;
   outline: 2.2px solid var(--primary-dark);
   box-shadow: 0 2px 12px 0 #1976d218;
   position: relative;
@@ -131,8 +132,8 @@ html, body {
 }
 
 .sidebar-nav li:hover, .sidebar-nav li:focus {
-  background: #21212108;
-  color: #000;
+  background: #f6fafd !important; /* very subtle offwhite on hover */
+  color: #1976d2 !important;
   outline: 2px solid #232323;
 }
 
