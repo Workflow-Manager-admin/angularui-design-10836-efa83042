@@ -28,22 +28,22 @@ export class DashboardChartsComponent {
       {
         label: 'Inbound Traffic',
         data: [42, 58, 66, 61, 75, 70, 80, 77, 90, 100, 88, 93],
-        borderColor: '#232323', // monotone dark gray
-        backgroundColor: 'rgba(40,40,40,0.09)', // translucent gray
+        borderColor: '#1976d2', // vibrant blue
+        backgroundColor: 'rgba(25, 118, 210, 0.15)', // translucent blue
         fill: true,
         tension: 0.32,
         pointRadius: 5,
-        pointBackgroundColor: '#444'
+        pointBackgroundColor: '#1976d2'
       },
       {
         label: 'Outbound Traffic',
         data: [27, 42, 55, 52, 62, 60, 67, 65, 74, 81, 77, 80],
-        borderColor: '#aaaaaa', // gray
-        backgroundColor: 'rgba(180,180,180,0.13)', // translucent light gray
+        borderColor: '#43a047', // vibrant green
+        backgroundColor: 'rgba(67, 160, 71, 0.15)',
         fill: true,
         tension: 0.28,
         pointRadius: 5,
-        pointBackgroundColor: '#bbbbbb'
+        pointBackgroundColor: '#43a047'
       }
     ] as ChartDataset<'line'>[],
     labels: [
@@ -72,7 +72,7 @@ export class DashboardChartsComponent {
       {
         label: 'Acquisitions',
         data: [3, 6, 9, 7],
-        backgroundColor: '#5c5c5c', // medium gray
+        backgroundColor: '#d81b60', // vibrant magenta
         borderWidth: 2,
         borderRadius: 10,
         barThickness: 28
@@ -98,25 +98,25 @@ export class DashboardChartsComponent {
       {
         label: 'Video',
         data: [18, 14, 20, 15],
-        backgroundColor: '#181818', // black
+        backgroundColor: '#1976d2', // blue
         stack: 'main'
       },
       {
         label: 'Web',
         data: [11, 13, 7, 9],
-        backgroundColor: '#4f4f4f', // dark gray
+        backgroundColor: '#43a047', // green
         stack: 'main'
       },
       {
         label: 'Gaming',
         data: [5, 7, 8, 6],
-        backgroundColor: '#a7a7a7', // soft gray
+        backgroundColor: '#ff9100', // orange
         stack: 'main'
       },
       {
         label: 'Social',
         data: [6, 8, 5, 7],
-        backgroundColor: '#cccccc', // pale gray
+        backgroundColor: '#d81b60', // magenta
         stack: 'main'
       }
     ] as ChartDataset<'bar'>[],
