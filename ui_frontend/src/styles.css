@@ -296,8 +296,10 @@ html, body {
   box-shadow: 0 0 0 2.2px #19191919;
 }
 .device-status-indicator.online {
-  background: #181818;
-  box-shadow: 0 0 0 2.5px #23232324;
+  background: #1ecb32 !important; /* Bright green for 'Online' status */
+  box-shadow: 0 0 0 2.5px #34cb5b4c, 0 2px 8px 0 #24c01025;
+  border-color: #108233;
+  /* Ensure indicator is clearly green and visually distinct */
 }
 .device-status-indicator.offline {
   background: #bdbdbd;
