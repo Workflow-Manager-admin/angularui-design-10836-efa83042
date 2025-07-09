@@ -203,19 +203,77 @@ html, body {
   font-weight: 600;
 }
 
+.device-overview-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.1rem;
+  margin-bottom: 1.4rem;
+}
+
+.device-status-indicator {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  border-radius: 50%;
+  margin-right: 0.35em;
+  vertical-align: middle;
+  border: 2.1px solid #fff;
+  box-shadow: 0 0 0 3px #c8e6c9b2;
+}
+.device-status-indicator.online {
+  background: linear-gradient(135deg, #33e283 60%, #1976d2 100%);
+  box-shadow: 0 0 5px 2px #81c78455, 0 0 0 3px #d0f9df6a;
+}
+.device-status-indicator.offline {
+  background: linear-gradient(135deg, #e0e0e0 60%, #bdbdbd 100%);
+  box-shadow: 0 0 2px 1.5px #e5737345, 0 0 0 3px #ffebee5c;
+}
+.device-status-label {
+  font-weight: 600;
+  color: #1976d2;
+  font-size: 1.06rem;
+  margin-right: 0.75em;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 3px #1976d21a;
+}
+.wifi-icon-large {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.35em;
+  margin-right: 0.2em;
+  width: 54px;
+  height: 54px;
+  filter: drop-shadow(0 4px 18px #90caf96c);
+}
+
+/* Device details grid modern layout for more fields */
 .device-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.83rem 1.4rem;
+  gap: 0.7rem 1.1rem;
   font-size: 1.04rem;
-  color: #3d4b61;
+  color: #35517a;
+  padding-bottom: 0.2em;
 }
 .device-details div {
-  line-height: 1.25em;
+  line-height: 1.23em;
   background: #f6fafd;
   border-radius: var(--radius-sm);
-  padding: 0.4em 0.7em;
+  padding: 0.45em 0.7em 0.43em 0.77em;
+  box-shadow: 0 1.3px 5px 0 #1976d20b;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
 }
+.device-details strong {
+  color: #1976d2;
+  font-size: 0.99em;
+  min-width: 7.3em;
+  display: inline-block;
+  font-weight: 700;
+}
+
 
 .card-quick-stats .stats-grid {
   display: grid;
