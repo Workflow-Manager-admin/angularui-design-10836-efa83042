@@ -1,0 +1,57 @@
+.filter-bar {
+  display: flex;
+  gap: 0.57rem;
+  background: #fafdff;
+  padding: 0.57rem 1.1rem 0.55rem 1.1rem;
+  border-radius: var(--radius-lg);
+  margin-bottom: 0.59rem;
+  align-items: center;
+  box-shadow: 0 1.2px 7px #ffbafc0b;
+  border: 1.6px solid #e9f4ff;
+  flex-wrap: wrap;
+}
+
+.filter-input, .filter-select {
+  font-size: 1.04rem;
+  font-family: var(--hogger-heading, Inter, Arial, sans-serif);
+  border-radius: var(--radius-md);
+  border: 2px solid #dde0e8;
+  padding: 0.37em 0.89em;
+  background: #fff;
+  color: #1976d2;
+  outline: none;
+  transition: border-color 0.13s;
+}
+
+.filter-input:focus, .filter-select:focus {
+  border-color: #1976d2;
+}
+
+.filter-input {
+  min-width: 179px;
+  flex: 2 1 220px;
+}
+
+.filter-select {
+  min-width: 99px;
+  max-width: 165px;
+  flex: 1 1 110px;
+}
+
+@media (max-width: 900px) {
+  .filter-bar {
+    flex-direction: column;
+    gap: 0.37rem;
+    padding: 0.41rem 0.1rem;
+    margin-bottom: 0.22rem;
+  }
+  .filter-input {
+    min-width: 98vw;
+    flex: 1 1 80vw;
+  }
+  .filter-select {
+    min-width: 88vw;
+    max-width: 98vw;
+    flex: 1 1 60vw;
+  }
+}

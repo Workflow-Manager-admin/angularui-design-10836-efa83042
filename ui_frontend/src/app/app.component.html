@@ -133,11 +133,26 @@
         </div>
       </section>
 
+      <!-- NEW: Analytics cards row for device/network stats -->
+      <app-analytics-cards></app-analytics-cards>
+
       <!-- Chart cards row: replaced with actual chart component -->
       <app-dashboard-charts></app-dashboard-charts>
 
+      <!-- Advanced filter bar for device table (wired-up below with data) -->
+      <app-filter-bar
+        [manufacturers]="deviceManufacturers"
+        [locations]="deviceLocations"
+        [types]="deviceTypes"
+        [filters]="activeDeviceFilters"
+        (filterChanged)="onDeviceFilterChange($event)"
+      ></app-filter-bar>
+
       <!-- Device table row with dialog integration -->
-      <app-device-table (deviceSelected)="openDeviceDetails($event)"></app-device-table>
+      <app-device-table
+        [devices]="filteredDeviceList"
+        (deviceSelected)="openDeviceDetails($event)">
+      </app-device-table>
 
       <!-- Device details dialog/modal -->
       <app-device-details-dialog
